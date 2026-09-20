@@ -1,0 +1,28 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('brand_product', function (Blueprint $table) {
+            $table->foreignUuid('brand_id')->constrained('brands', 'id')->cascadeOnDelete();
+            $table->foreignUuid('product_id')->constrained('products', 'id')->cascadeOnDelete();
+            $table->timestamps();
+            $table->primary(['brand_id', 'product_id']);
+        });
+    }
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('brand_product');
+    }
+};
