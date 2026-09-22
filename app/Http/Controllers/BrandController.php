@@ -11,7 +11,7 @@ class BrandController extends Controller
 {
     public function index(): JsonResponse
     {
-        $brands = Brand::withCount('products')->get();
+        $brands = Brand::with('products')->get();
 
         return response()->json([
             'status' => 'success',

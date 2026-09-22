@@ -8,7 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Author extends Model
 {
     use HasUuids;
-    public function products(){
+    protected $fillable = [
+        'name',
+        'image'
+    ];
+    public function products()
+    {
         return $this->hasMany(Product::class);
     }
 }

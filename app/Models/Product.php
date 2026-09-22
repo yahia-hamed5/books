@@ -44,4 +44,8 @@ class Product extends Model
     {
         return $this->belongsToMany(Category::class)->withTimestamps();
     }
+
+    public function cartItems(){
+        return $this->hasMany(CartItem::class);
+    }
 }
