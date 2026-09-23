@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Brand extends Model
 {
     use HasUuids;
+
+    protected $fillable = ['name', 'image'];
     public function products()
     {
         return $this->belongsToMany(Product::class)->withTimestamps();
