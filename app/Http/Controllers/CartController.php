@@ -73,7 +73,7 @@ class CartController extends Controller
         if ($quantity > $product->qty) {
             return response()->json([
                 'status' => 'error',
-                'message' => 'Quantity exceeds available stock',
+                'message' => "Product '{$product->name}' only has {$product->qty} items in stock. You requested {$quantity}.",
             ], 400);
         }
 
